@@ -6,4 +6,4 @@ new thing.
 
 xiugai
 
-git is a free software.
+git is good
