@@ -11,3 +11,4 @@ git is good
 git is very nice.
 
 git config --global color.ui true.
+git config --global alias.ci commit
