@@ -61,7 +61,7 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
  	---
  	3) id_rsa是私钥不要泄露，id_rsa_pub是公钥可以暴露
  	4) 登陆Github,进入settings,找到SSH keys,添加新SSH key,填上id_rsa_pub.
- 	5) github需要知道是咱们自己提交的而不是别人所以需要SSH key.
+ 	5) Github需要知道是咱们自己提交的而不是别人所以需要SSH key.
  	
 ---
 
@@ -89,4 +89,12 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 	合并完成后删除分支dev分支
 	$ git branch -d dev // 删除dev分支
 	$ git branch //可以查看分支情况
+	
+合并分支一般是Fast forward模式，删除分支后，会丢掉分支信息。
+
+合并是加上 --no-ff参数可以变为普通合并模式。可以查看历史记录。
+
+	$ git merge --no-ff -m 'merge with --no-ff' dev
+
+因为此次合并Git会生成一个新的commit，所以加上-m.
 	
