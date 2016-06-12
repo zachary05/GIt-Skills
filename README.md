@@ -6,7 +6,7 @@
 #### [4.远程仓库](#chapter4)
 #### [5.分支管理](#chapter5)
 
-#####  [1.基本用法](id:chapter1)
+####  [1.基本用法](id:chapter1)
 	$ mkdir fileA //创建仓库(make dir) 
 	$ cd fileA //进入当前文件夹
 	$ pwd //查看当前文件路径
@@ -36,7 +36,7 @@
 
 
 ---
-##### [2.版本回退](id:chapter2)
+#### [2.版本回退](id:chapter2)
 
 HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 
@@ -45,7 +45,7 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 	$ git reflow // 可以查看所有历史记录和版本号
 	$ cat README.md //可以查看文件内容
 	
-##### [3.撤销修改](id:chapter3)
+#### [3.撤销修改](id:chapter3)
 可以配合git reset --hard HEAD file 一起使用
 
 	$ git checkout -- README.md //撤销到最近一次add或commit时的状态
@@ -53,7 +53,7 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 	$ rm README.md //版本库里删除文件
 	$ git checkout -- README.md // 一键还原删除文件，因为版本库里还有。
 ---
-##### [4.远程仓库](id:chapter4)
+#### [4.远程仓库](id:chapter4)
  	1) 创建SSH key. 查看主目录.ssh是否有id_rsa,id_rsa.pub.
  	2) 如果没有，创建SSH key:
  	---
@@ -71,4 +71,22 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 	2）$ git clone git@github.com:xxx/ohMyLove.git
 	3）Git原生的git协议比https协议更快
 	
-##### [5.分支管理](id:chapter5)
+#### [5.分支管理](id:chapter5)
+	$ git checkout -b dev //创建并切换到dev分支
+	
+	>等同于：
+	$ git branch dev //创建分支dev
+	$ git checkout dev //切换分支dev
+	
+	查看分支：
+	$ git branch //查看分支
+	
+	dev分支工作完成后：
+	$ git checkout master //切换到主分支
+	$ git merge dev // 把dev上工作内容合并到master上
+	//git merge 用于合并指定分支到当前分支
+	
+	合并完成后删除分支dev分支
+	$ git branch -d dev // 删除dev分支
+	$ git branch //可以查看分支情况
+	
