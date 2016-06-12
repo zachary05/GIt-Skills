@@ -98,3 +98,10 @@ HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 
 因为此次合并Git会生成一个新的commit，所以加上-m.
 	
+#### [6.Bug分支](id:chapter6)
+当接到BUG时，创建issue-01分支进行修复，可是当前分支工作没有完成。
+
+使用git stash将当前工作现场储藏起来。
+	
+	$ git stash // 储藏
+	
