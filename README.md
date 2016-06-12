@@ -1,9 +1,12 @@
-# Gits / Kills 
+# Git / Skills 
 ### LEARNGING PROCEDURE
-#### [1.基本用法](id:basic)
-#### [2.版本回退](id:back)
+#### [1.基本用法](#chapter1)
+#### [2.版本回退](#chapter2)
+#### [3.撤销修改](#chapter3)
+#### [4.远程仓库](#chapter4)
+#### [5.分支管理](#chapter5)
 
-#####  [1.基本用法](#basic)
+#####  [1.基本用法](id:chapter1)
 	$ mkdir fileA //创建仓库(make dir) 
 	$ cd fileA //进入当前文件夹
 	$ pwd //查看当前文件路径
@@ -19,11 +22,11 @@
 	$ git add README.md //添加文件
 	$ git add file1.md file2.md file3.md //git add可以一次提交多个文件
 
-
 ---
 -m后是本次提交的说明：
 
 	$ git commit -m 'write a readme.ad' //提交到仓库
+	
 
 ---
 	$ git status //查看当前状态
@@ -33,12 +36,39 @@
 
 
 ---
-##### [2.版本回退](#back)
+##### [2.版本回退](id:chapter2)
 
 HEAD是当前版本，HEAD^是上个版本，HEAD~100上一白个版本
 
-	git reset --hard HEAD^	 //
-	git reset --hard 0e4f7bb // 退回到版本号
-	git reflow // 可以查看所有历史记录和版本号
-	cat README.md //可以查看文件内容
+	$ git reset --hard HEAD^	 //
+	$ git reset --hard 0e4f7bb // 退回到版本号
+	$ git reflow // 可以查看所有历史记录和版本号
+	$ cat README.md //可以查看文件内容
 	
+##### [3.撤销修改](id:chapter3)
+可以配合git reset --hard HEAD file 一起使用
+
+	$ git checkout -- README.md //撤销到最近一次add或commit时的状态
+	---
+	$ rm README.md //版本库里删除文件
+	$ git checkout -- README.md // 一键还原删除文件，因为版本库里还有。
+---
+##### [4.远程仓库](id:chapter4)
+ 	1) 创建SSH key. 查看主目录.ssh是否有id_rsa,id_rsa.pub.
+ 	2) 如果没有，创建SSH key:
+ 	---
+ 	$ ssh-keygen -t rsa -C 'youremail@example.com'
+ 	---
+ 	3) id_rsa是私钥不要泄露，id_rsa_pub是公钥可以暴露
+ 	4) 登陆Github,进入settings,找到SSH keys,添加新SSH key,填上id_rsa_pub.
+ 	5) github需要知道是咱们自己提交的而不是别人所以需要SSH key.
+ 	
+---
+
+######>从远程仓库克隆
+
+	1）登陆Github, 创建新仓库 For example: ohMyLove
+	2）$ git clone git@github.com:xxx/ohMyLove.git
+	3）Git原生的git协议比https协议更快
+	
+##### [5.分支管理](id:chapter5)
