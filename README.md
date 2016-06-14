@@ -167,7 +167,36 @@ issue-01修改结束后，切换到master进行合并，并删除issue-01:
 
 	$ git pull 
 	
+#### [8.标签管理](id:chapter8)
+创建标签:
 
 
+	$ git tag <name>//eg: $ git tag v.01
+	
+	$ git tag <name> <commit:id> //在对应commit上打标签。
+	
+	$ git tag -a v.01 -m 'version v.01 released' 8678979 //创建带有说明的标签。
 
-
+查看标签:
+
+	$ git tag
+
+查看标签信息：
+
+	$ git show <tagname>
+
+删除标签：
+
+	$ git tag -d v.01 //删除v.01标签
+	
+推送标签到远程：
+
+	$ git push origin v.01 
+	
+	$ git push --tags //一次性推送未推送的标签。
+	
+如果要删除远程标签： (先删除本地标签，在删除远程标签)
+
+	$ git tag -d v.01 //本地删除 v.01
+	
+	$ git push origin :refs/tags/v.01 // 远程删除 v.01
